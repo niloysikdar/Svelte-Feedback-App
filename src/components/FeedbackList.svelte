@@ -6,5 +6,5 @@
 
 <h2>Feedback List</h2>
 {#each feedbackData as data (data.id)}
-    <FeedbackItem {data} />
+    <FeedbackItem {data} on:delete-feedback />
 {/each}
