@@ -7,9 +7,10 @@
 	let feedbackData = FeedbackData;
 
 	$: feedbacklistLength = feedbackData.length;
-	$: averageRating =
+	$: averageRating = (
 		feedbackData.reduce((a, { rating }) => a + rating, 0) /
-			feedbacklistLength || 0;
+			feedbacklistLength || 0
+	).toFixed(2);
 
 	const handleDelete = (e) => {
 		const itemId = e.detail;

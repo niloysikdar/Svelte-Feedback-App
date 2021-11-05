@@ -33,6 +33,7 @@
                 text,
             };
             dispatch("new-feedback", newData);
+            text = "";
         }
     };
 </script>
