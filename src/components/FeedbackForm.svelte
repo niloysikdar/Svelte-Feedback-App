@@ -1,10 +1,8 @@
 <script>
-    import { createEventDispatcher } from "svelte";
     import { v4 as uuidv4 } from "uuid";
+    import { FeedbackStore } from "../stores";
     import RatingSelect from "./RatingSelect.svelte";
     import SubmitButton from "./SubmitButton.svelte";
-
-    const dispatch = createEventDispatcher();
 
     let text = "";
     let isDisabled = true;
@@ -32,7 +30,9 @@
                 rating: +rating,
                 text,
             };
-            dispatch("new-feedback", newData);
+            FeedbackStore.update((currentData) => {
+                return [newData, ...currentData];
+            });
             text = "";
         }
     };
