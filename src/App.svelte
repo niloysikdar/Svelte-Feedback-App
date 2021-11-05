@@ -3,7 +3,6 @@
 	import { FeedbackData } from "./FeedbackData";
 </script>
 
-<main>
-	<h1>Hello</h1>
+<main class="container">
 	<FeedbackList feedbackData={FeedbackData} />
 </main>
