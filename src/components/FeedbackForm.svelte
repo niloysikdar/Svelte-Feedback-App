@@ -1,8 +1,14 @@
 <script>
+    import { createEventDispatcher } from "svelte";
+    import { v4 as uuidv4 } from "uuid";
+    import RatingSelect from "./RatingSelect.svelte";
     import SubmitButton from "./SubmitButton.svelte";
+
+    const dispatch = createEventDispatcher();
 
     let text = "";
     let isDisabled = true;
+    let rating = 10;
     const minLen = 10;
     let message;
 
@@ -14,6 +20,19 @@
         } else {
             message = "";
             isDisabled = false;
+        }
+    };
+
+    const handleRatingSelect = (e) => (rating = e.detail);
+
+    const handleSubmit = () => {
+        if (text.trim().length >= minLen) {
+            const newData = {
+                id: uuidv4(),
+                rating: +rating,
+                text,
+            };
+            dispatch("new-feedback", newData);
         }
     };
 </script>
@@ -62,7 +81,8 @@
     <header>
         <h2>Please provide your feedback about our service</h2>
     </header>
-    <form>
+    <form on:submit|preventDefault={handleSubmit}>
+        <RatingSelect on:rating-select={handleRatingSelect} />
         <div class="input-group">
             <input
                 type="text"

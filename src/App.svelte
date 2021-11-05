@@ -14,12 +14,15 @@
 	const handleDelete = (e) => {
 		const itemId = e.detail;
 		feedbackData = feedbackData.filter((item) => item.id !== itemId);
-		console.log(e.detail);
+	};
+
+	const addNewFeedback = (e) => {
+		feedbackData = [e.detail, ...feedbackData];
 	};
 </script>
 
 <main class="container">
-	<FeedbackForm />
+	<FeedbackForm on:new-feedback={addNewFeedback} />
 	<FeedbackStats count={feedbacklistLength} average={averageRating} />
 	<FeedbackList {feedbackData} on:delete-feedback={handleDelete} />
 </main>
