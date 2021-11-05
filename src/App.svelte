@@ -1,7 +1,6 @@
 <script>
-	const name = "App";
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
+	<h1>Hello</h1>
 </main>
