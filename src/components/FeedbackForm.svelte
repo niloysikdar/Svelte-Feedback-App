@@ -34,6 +34,7 @@
                 return [newData, ...currentData];
             });
             text = "";
+            isDisabled = true;
         }
     };
 </script>
