@@ -42,6 +42,12 @@
         background: none;
         border: none;
     }
+
+    @media (max-width: 700px) {
+        .card {
+            padding: 35px 30px;
+        }
+    }
 </style>
 
 <div class="card">

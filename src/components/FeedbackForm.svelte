@@ -58,7 +58,6 @@
     }
     .input-group {
         display: flex;
-        flex-direction: row;
         border: 1px solid #ccc;
         padding: 8px 10px;
         border-radius: 8px;
@@ -76,6 +75,12 @@
         padding-top: 10px;
         text-align: start;
         color: rebeccapurple;
+    }
+
+    @media (max-width: 700px) {
+        .card {
+            padding: 15px;
+        }
     }
 </style>
 
